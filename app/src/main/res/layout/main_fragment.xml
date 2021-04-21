@@ -9,8 +9,7 @@
         android:id="@+id/main"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingStart="@dimen/padding"
-        android:paddingEnd="@dimen/padding">
+        android:padding="@dimen/padding">
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/input_layout"
