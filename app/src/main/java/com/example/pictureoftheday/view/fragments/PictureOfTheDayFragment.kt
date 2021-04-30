@@ -1,6 +1,5 @@
 package com.example.pictureoftheday.view.fragments
 
-import android.annotation.SuppressLint
 import android.content.Intent
 import android.net.Uri
 import androidx.lifecycle.ViewModelProvider
@@ -9,18 +8,14 @@ import android.view.*
 import androidx.fragment.app.Fragment
 import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.lifecycle.Observer
-import coil.api.load
 import com.example.pictureoftheday.R
+import com.example.pictureoftheday.ViewPagerAdapter
 import com.example.pictureoftheday.databinding.MainFragmentBinding
 import com.example.pictureoftheday.server.PictureOfTheDayData
 import com.example.pictureoftheday.view.MainActivity
 import com.example.pictureoftheday.viewmodel.PictureOfTheDayViewModel
 import com.google.android.material.bottomsheet.BottomSheetBehavior
-import com.google.android.material.chip.Chip
 import kotlinx.android.synthetic.main.bottom_sheet.*
-import java.text.SimpleDateFormat
-import java.util.*
 
 class PictureOfTheDayFragment : Fragment() {
 
@@ -28,8 +23,6 @@ class PictureOfTheDayFragment : Fragment() {
     private val binding get() = _binding!!
     
     private lateinit var bottomSheetBehavior: BottomSheetBehavior<ConstraintLayout>
-
-    private val format = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
 
     private val viewModel: PictureOfTheDayViewModel by lazy {
         ViewModelProvider(this).get(PictureOfTheDayViewModel::class.java)
@@ -52,6 +45,7 @@ class PictureOfTheDayFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding.viewPager.adapter = ViewPagerAdapter(childFragmentManager)
         setBottomSheetBehavior(view.findViewById(R.id.bottom_sheet_container))
         binding.inputLayout.setEndIconOnClickListener {
             startActivity(Intent(Intent.ACTION_VIEW).apply {
@@ -59,7 +53,6 @@ class PictureOfTheDayFragment : Fragment() {
             })
         }
         setBottomAppBar()
-        setChipGroup()
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -101,11 +94,6 @@ class PictureOfTheDayFragment : Fragment() {
                 if (url.isNullOrEmpty()) {
                     toast("Empty")
                 } else {
-                    binding.imageView.load(url) {
-                        lifecycle(this@PictureOfTheDayFragment)
-                        error(R.drawable.video)
-                        placeholder(R.drawable.video)
-                    }
                     bottom_sheet_description_header.text = serverResponseData.title
                     bottom_sheet_description.text = serverResponseData.explanation
                 }
@@ -129,29 +117,5 @@ class PictureOfTheDayFragment : Fragment() {
     private fun setBottomSheetBehavior(bottomSheet: ConstraintLayout) {
         bottomSheetBehavior = BottomSheetBehavior.from(bottomSheet)
         bottomSheetBehavior.state = BottomSheetBehavior.STATE_COLLAPSED
-    }
-
-    private fun setChipGroup() {
-        binding.chipGroup.setOnCheckedChangeListener { group, checkedId ->
-            group.findViewById<Chip>(checkedId)?.let { chip ->
-                when(chip) {
-                    binding.chip2DaysBefore -> {
-                        viewModel.getData(format.format(dayBefore(2))).observe(viewLifecycleOwner, { renderData(it) })
-                    }
-                    binding.chipYesterday -> {
-                        viewModel.getData(format.format(dayBefore(1))).observe(viewLifecycleOwner, { renderData(it) })
-                    }
-                    binding.chipToday -> {
-                        viewModel.getData(null).observe(viewLifecycleOwner, { renderData(it) })
-                    }
-                }
-            }
-        }
-    }
-
-    private fun dayBefore(day: Int) : Date {
-        val calendar = Calendar.getInstance()
-        calendar.add(Calendar.DATE, -day)
-        return calendar.time
     }
 }

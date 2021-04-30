@@ -4,6 +4,7 @@ import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.pictureoftheday.R
+import com.example.pictureoftheday.ViewPagerAdapter
 import com.example.pictureoftheday.databinding.MainActivityBinding
 import com.example.pictureoftheday.view.fragments.NAME_THEME
 import com.example.pictureoftheday.view.fragments.PictureOfTheDayFragment

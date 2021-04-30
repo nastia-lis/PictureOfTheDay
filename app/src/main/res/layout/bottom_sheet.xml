@@ -27,6 +27,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/bottom_sheet_line"
+        android:text="@string/title"
         style="@style/TextViewHeaderBottomSheet"/>
 
     <TextView
@@ -35,6 +36,7 @@
         android:layout_height="wrap_content"
         android:paddingStart="@dimen/bs_text_view_padding_start"
         android:paddingEnd="@dimen/bs_text_view_padding_end"
+        android:text="@string/explanation"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/bottom_sheet_description_header" />
