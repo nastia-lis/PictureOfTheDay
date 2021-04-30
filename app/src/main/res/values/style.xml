@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="ChipGroup" parent="Widget.MaterialComponents.ChipGroup">
+        <item name="backgroundTint">?attr/colorSecondary</item>
+        <item name="android:textColor">?attr/colorOnSecondary</item>
+        <item name="colorControlHighlight">?attr/colorSecondaryVariant</item>
+    </style>
+
+    <style name="TextViewHeaderBottomSheet" parent="Widget.MaterialComponents.TextView">
+        <item name="android:layout_marginTop">@dimen/bs_text_view_margin_top</item>
+        <item name="paddingStart">@dimen/bs_text_view_padding_start</item>
+        <item name="paddingEnd">@dimen/bs_text_view_padding_end</item>
+        <item name="android:textColor">?attr/colorOnSecondary</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+</resources>

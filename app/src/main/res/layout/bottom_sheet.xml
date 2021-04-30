@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/bottom_sheet_container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#f6f6fa"
     app:behavior_hideable="true"
-    app:behavior_peekHeight="50dp"
+    app:behavior_peekHeight="@dimen/bs_peek_height"
+    android:background="?attr/colorSecondary"
+    android:visibility="visible"
     app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
 
     <View
         android:id="@+id/bottom_sheet_line"
-        android:layout_width="25dp"
-        android:layout_height="1dp"
-        android:layout_marginTop="5dp"
-        android:background="#663b4351"
+        android:layout_width="@dimen/bs_view_width"
+        android:layout_height="@dimen/bs_view_height"
+        android:layout_marginTop="@dimen/bs_text_view_margin_top"
+        android:background="?attr/colorSecondaryVariant"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -24,21 +24,17 @@
         android:id="@+id/bottom_sheet_description_header"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:paddingStart="10dp"
-        android:paddingEnd="10dp"
-        android:textColor="#000"
-        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bottom_sheet_line" />
+        app:layout_constraintTop_toBottomOf="@+id/bottom_sheet_line"
+        style="@style/TextViewHeaderBottomSheet"/>
 
     <TextView
         android:id="@+id/bottom_sheet_description"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingStart="10dp"
-        android:paddingEnd="10dp"
+        android:paddingStart="@dimen/bs_text_view_padding_start"
+        android:paddingEnd="@dimen/bs_text_view_padding_end"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/bottom_sheet_description_header" />

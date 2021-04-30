@@ -1,4 +1,13 @@
 <resources>
     <string name="app_name">Picture Of The Day</string>
     <string name="search_wiki">Search wiki</string>
+    <string name="choose_theme">Choose theme</string>
+    <string name="sunshine_theme">Sunshine theme</string>
+    <string name="blue_sky_theme">Blue sky theme</string>
+    <string name="space_theme">Space theme</string>
+    <string name="settings">Settings</string>
+    <string name="main_theme">Main theme</string>
+    <string name="_2_days_before">2 days before</string>
+    <string name="yesterday">Yesterday</string>
+    <string name="today">Today</string>
 </resources>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="@dimen/padding_settings_fragment">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/choose_theme"
+        android:textSize="@dimen/text_size_header_set_frag" />
+
+    <com.google.android.material.chip.ChipGroup
+        android:id="@+id/chip_group"
+        style="@style/ChipGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:selectionRequired="true"
+        app:singleSelection="true">
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip_main"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/main_theme" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip_sunshine"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/sunshine_theme" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip_space"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/space_theme" />
+    </com.google.android.material.chip.ChipGroup>
+</LinearLayout>
