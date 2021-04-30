@@ -1,4 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="padding">10dp</dimen>
+    <dimen name="padding_settings_fragment">30dp</dimen>
+    <dimen name="text_size_header_set_frag">30sp</dimen>
+    <dimen name="bs_text_view_margin_top">5dp</dimen>
+    <dimen name="bs_text_view_padding_start">10dp</dimen>
+    <dimen name="bs_text_view_padding_end">10dp</dimen>
+    <dimen name="bs_view_width">25dp</dimen>
+    <dimen name="bs_view_height">1dp</dimen>
+    <dimen name="bs_peek_height">150dp</dimen>
 </resources>
